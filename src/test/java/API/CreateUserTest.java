@@ -2,9 +2,10 @@ package API;
 
 import API.dto.UserData;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Test;
 
-public class CreateUser extends BaseApiTest {
+public class CreateUserTest extends BaseApi {
 
     String endpoint = "/users";
 
@@ -18,5 +19,10 @@ public class CreateUser extends BaseApiTest {
                 .build();
 
         Response response = postRequest(endpoint, 201, userData);
+    }
+
+    @After
+    public void deleteApiCreatedUser(){
+        // дописать метод удаления созданного пользователя
     }
 }

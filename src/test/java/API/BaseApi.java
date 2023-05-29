@@ -6,7 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class BaseApiTest {
+public class BaseApi {
 
     final static String BASE_URI = "https://studio-api.softr.io/v1/api";
     final static String API_KEY = "khIbAyJIU5CIuh1oDuBRx1s49";
@@ -32,6 +32,5 @@ public class BaseApiTest {
         response.then().assertThat().statusCode(responseCode);
         return response;
     }
-
 
 }

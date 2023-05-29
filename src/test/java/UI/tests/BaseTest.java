@@ -7,6 +7,7 @@ import UI.pages.Header;
 import UI.pages.HomePage;
 import UI.pages.SignUpPage;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 
 public class BaseTest {

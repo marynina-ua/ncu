@@ -1,6 +1,5 @@
 package UI.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 
@@ -28,18 +27,30 @@ public class SignUpPage {
         roleTeacher.click();
     }
 
-    public void fieldFullName(){
+    public void selectRoleAsStudent (){
+        selectRole.click();
+        roleStudent.click();
+    }
+
+    public void fieldTeacherFullName(){
         inputFieldFullName.setValue("TeacherAutoTest");
     }
 
+    public void fieldStudentFullName(){
+        inputFieldFullName.setValue("StudentAutoTest");
+    }
 
     public void fieldValidEmail() {
         inputFieldEmail.setValue(email);
         System.out.println(email);
     }
 
-    public void fieldValidPassword() {
+    public void fieldValidTeacherPassword() {
         inputFieldPassword.setValue("xQwerty123");
+    }
+
+    public void fieldValidStudentPassword() {
+        inputFieldPassword.setValue("Qwerty123");
     }
 
     public void selectCheckBox() {
@@ -50,14 +61,5 @@ public class SignUpPage {
         signUpButton.click();
         sleep(2000);
     }
-
-
-    //----------------------------------------------
-
-    public void selectRoleAsStudent (){
-        selectRole.click();
-        roleStudent.click();
-    }
-
 
 }
