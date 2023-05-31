@@ -1,6 +1,6 @@
 package UI.tests;
 
-import org.junit.After;
+import API.DeleteUserTest;
 import org.junit.Test;
 
 public class SignUpTest extends BaseTest{
@@ -10,13 +10,15 @@ public class SignUpTest extends BaseTest{
     public void successfulSignUpAsTeacher() {
         header.clickOnSingUpButton();
         signUpPage.selectRoleAsTeacher();
-        signUpPage.fieldTeacherFullName();
-        signUpPage.fieldValidEmail();
-        signUpPage.fieldValidTeacherPassword();
+        signUpPage.fieldFullName("TeacherAutoTest");
+        signUpPage.fieldValidEmail("AutoTestTeacher@gmail.com");
+        signUpPage.fieldValidPassword("xQwerty123");
         signUpPage.selectCheckBox();
         signUpPage.clickOnSignUpButton();
         header.userIconShouldBeVisible();
         header.studentDirectoryButtonIsAble();
+
+        DeleteUserTest.deleteApi("AutoTestTeacher@gmail.com");
     }
 
     //e2e
@@ -24,21 +26,16 @@ public class SignUpTest extends BaseTest{
     public void successfulSignUpAsStudent() {
         header.clickOnSingUpButton();
         signUpPage.selectRoleAsStudent();
-        signUpPage.fieldStudentFullName();
-        signUpPage.fieldValidEmail();
-        signUpPage.fieldValidStudentPassword();
+        signUpPage.fieldFullName("StudentAutoTest");
+        signUpPage.fieldValidEmail("AutoTestStudent@gmail.com");
+        signUpPage.fieldValidPassword("Qwerty123");
         signUpPage.selectCheckBox();
         signUpPage.clickOnSignUpButton();
         header.userIconShouldBeVisible();
         header.studentDirectoryButtonIsAble();
+
+        DeleteUserTest.deleteApi("AutoTestStudent@gmail.com");
     }
 
     //2 regration(два на основе зарегистрированных проблем(регрессионные тесты); )
-
-
-    @After
-    public void deleteUser(){
-        // не знаю как удалить
-    }
-
 }

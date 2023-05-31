@@ -19,9 +19,6 @@ public class SignUpPage {
     private SelenideElement checkBox = $ (byXpath("//*[@id=\"signup\"]/div[4]/div[2]/label/span[1]"));
     private SelenideElement signUpButton = $ (byId("sw-sign-up-submit-btn"));
 
-    Faker faker = new Faker();
-    String email = faker.internet().emailAddress();
-
     public void selectRoleAsTeacher (){
         selectRole.click();
         roleTeacher.click();
@@ -32,25 +29,16 @@ public class SignUpPage {
         roleStudent.click();
     }
 
-    public void fieldTeacherFullName(){
-        inputFieldFullName.setValue("TeacherAutoTest");
+    public void fieldFullName(String fullName){
+        inputFieldFullName.setValue(fullName);
     }
 
-    public void fieldStudentFullName(){
-        inputFieldFullName.setValue("StudentAutoTest");
-    }
-
-    public void fieldValidEmail() {
+    public void fieldValidEmail(String email) {
         inputFieldEmail.setValue(email);
-        System.out.println(email);
     }
 
-    public void fieldValidTeacherPassword() {
-        inputFieldPassword.setValue("xQwerty123");
-    }
-
-    public void fieldValidStudentPassword() {
-        inputFieldPassword.setValue("Qwerty123");
+    public void fieldValidPassword(String password) {
+        inputFieldPassword.setValue(password);
     }
 
     public void selectCheckBox() {

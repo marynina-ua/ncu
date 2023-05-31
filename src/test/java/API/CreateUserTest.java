@@ -5,15 +5,18 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Test;
 
+import static API.DeleteUserTest.deleteApi;
+
 public class CreateUserTest extends BaseApi {
 
-    String endpoint = "/users";
+    static String ApiUserEmail = "ApiAutoTest@gmail.com";
+    static String endpoint = "/users";
 
     @Test
     public void successfulCreateUser() {
         UserData userData = UserData.builder()
-                .email("XAutoTest@gmail.com")
-                .full_name("AutoTest")
+                .email(ApiUserEmail)
+                .full_name("ApiAutoTest")
                 .password("12345678")
                 .generate_magic_link(false)
                 .build();
@@ -23,6 +26,6 @@ public class CreateUserTest extends BaseApi {
 
     @After
     public void deleteApiCreatedUser(){
-        // дописать метод удаления созданного пользователя
+        deleteApi(ApiUserEmail);
     }
 }

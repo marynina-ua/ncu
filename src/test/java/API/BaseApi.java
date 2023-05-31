@@ -20,13 +20,25 @@ public class BaseApi {
             .addHeader("Softr-Domain",DOMAIN )
             .build();
 
-    public Response postRequest(String endPoint, Integer responseCode, Object body) {
+    public static Response postRequest(String endPoint, Integer responseCode, Object body) {
         Response response = RestAssured.given()
                 .spec(specification)
                 .body(body)
                 .when()
                 .log().all()
                 .post(endPoint)
+                .then().log().all()
+                .extract().response();
+        response.then().assertThat().statusCode(responseCode);
+        return response;
+    }
+
+    public static Response deleteRequest(String endPoint, Integer responseCode) {
+        Response response = RestAssured.given()
+                .spec(specification)
+                .when()
+                .log().all()
+                .delete(endPoint)
                 .then().log().all()
                 .extract().response();
         response.then().assertThat().statusCode(responseCode);
