@@ -1,4 +1,4 @@
 package UI.tests;
 
-public class HomePageTest {
+public class HomePageTest extends BaseTest {
 }

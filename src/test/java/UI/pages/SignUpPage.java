@@ -1,8 +1,8 @@
 package UI.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.github.javafaker.Faker;
 
+import static UI.pages.HomePage.signUpButton;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
@@ -17,7 +17,6 @@ public class SignUpPage {
     private SelenideElement inputFieldEmail = $ (byId("sw-form-capture-email-input"));
     private SelenideElement inputFieldPassword = $ (byId("sw-form-password-input"));
     private SelenideElement checkBox = $ (byXpath("//*[@id=\"signup\"]/div[4]/div[2]/label/span[1]"));
-    private SelenideElement signUpButton = $ (byId("sw-sign-up-submit-btn"));
 
     public void selectRoleAsTeacher (){
         selectRole.click();

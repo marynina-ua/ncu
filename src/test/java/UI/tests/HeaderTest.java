@@ -1,4 +1,4 @@
 package UI.tests;
 
-public class HeaderTest {
+public class HeaderTest extends BaseTest{
 }

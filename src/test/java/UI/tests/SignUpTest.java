@@ -1,12 +1,10 @@
 package UI.tests;
 
-import API.DeleteUserTest;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class SignUpTest extends BaseTest{
 
-    //e2e
-    @Test
+    @Test(testName = "E2E SignUp as Teacher")
     public void successfulSignUpAsTeacher() {
         header.clickOnSingUpButton();
         signUpPage.selectRoleAsTeacher();
@@ -16,13 +14,13 @@ public class SignUpTest extends BaseTest{
         signUpPage.selectCheckBox();
         signUpPage.clickOnSignUpButton();
         header.userIconShouldBeVisible();
-        header.studentDirectoryButtonIsAble();
+        header.studentDirectoryButtonIsAvailable();
 
-        DeleteUserTest.deleteApi("AutoTestTeacher@gmail.com");
+        baseApi.deleteApiUser("AutoTestTeacher@gmail.com");
     }
 
-    //e2e
-    @Test
+
+    @Test(testName = "E2E SignUp as Student")
     public void successfulSignUpAsStudent() {
         header.clickOnSingUpButton();
         signUpPage.selectRoleAsStudent();
@@ -32,9 +30,9 @@ public class SignUpTest extends BaseTest{
         signUpPage.selectCheckBox();
         signUpPage.clickOnSignUpButton();
         header.userIconShouldBeVisible();
-        header.studentDirectoryButtonIsAble();
+        header.studentDirectoryButtonIsAvailable();
 
-        DeleteUserTest.deleteApi("AutoTestStudent@gmail.com");
+        baseApi.deleteApiUser("AutoTestStudent@gmail.com");
     }
 
     //2 regration(два на основе зарегистрированных проблем(регрессионные тесты); )

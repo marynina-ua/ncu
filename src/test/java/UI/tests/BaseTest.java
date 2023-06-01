@@ -1,13 +1,14 @@
 package UI.tests;
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
-
+import API.BaseApi;
 import UI.pages.Header;
 import UI.pages.HomePage;
 import UI.pages.SignUpPage;
-import org.junit.After;
-import org.junit.Before;
+import com.codeborne.selenide.Configuration;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 
 public class BaseTest {
 
@@ -16,16 +17,11 @@ public class BaseTest {
     HomePage homePage = new HomePage();
     SignUpPage signUpPage = new SignUpPage();
     Header header = new Header();
+    BaseApi baseApi = new BaseApi();
 
-    @Before
+    @BeforeMethod
     public void init() {
         System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
         open(BASE_URL);
     }
-//    @After
-//    public void tearDown(){
-//        closeWebDriver();
-//    }
-
-
 }
