@@ -28,18 +28,11 @@
             <version>6.11.2</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>junit</groupId>-->
-<!--            <artifactId>junit</artifactId>-->
-<!--            <version>4.13.2</version>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.7.0</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.projectlombok</groupId>
