@@ -2,9 +2,7 @@ package UI.tests;
 import static com.codeborne.selenide.Selenide.open;
 
 import API.BaseApi;
-import UI.pages.Header;
-import UI.pages.HomePage;
-import UI.pages.SignUpPage;
+import UI.pages.*;
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -16,6 +14,8 @@ public class BaseTest {
 
     HomePage homePage = new HomePage();
     SignUpPage signUpPage = new SignUpPage();
+    SignInPage signInPage = new SignInPage();
+    MyProfilePage myProfilePage = new MyProfilePage();
     Header header = new Header();
     BaseApi baseApi = new BaseApi();
 

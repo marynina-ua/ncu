@@ -11,6 +11,8 @@ public class HomePage {
     public static final ElementsCollection singUpButtons = $$(byAttribute("href", "/sign-up"));
 
     public static final SelenideElement userIcon = $(byXpath("//div[@class='MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1s7t6r0']"));
+    public static final SelenideElement userIconMyProfile = $(byXpath("//span[normalize-space()='My Profile']"));
+
     public static final SelenideElement studentDirectoryButton = $(byAttribute("href", "/student-directory"));
 
     public static final SelenideElement signInButton = $(byXpath("//span[normalize-space()='Sign in']"));

@@ -19,5 +19,13 @@ public class SignInPage {
         sleep(2000);
     }
 
+    public void signInAsUser(String userEmail, String userPassword){
+        emailField.setValue(userEmail);
+        passwordField.setValue(userPassword);
+        signInButton.click();
+        sleep(2000);
+    }
+
+
 
 }
