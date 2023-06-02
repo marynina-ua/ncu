@@ -13,12 +13,12 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CreateApiUserTest extends BaseApi {
 
-    @BeforeMethod
-    public void init() {
-        System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
-        open(BASE_URL);
-        //        Configuration.holdBrowserOpen=true;
-    }
+//    @BeforeMethod
+//    public void init() {
+//        System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
+//        open(BASE_URL);
+//        //        Configuration.holdBrowserOpen=true;
+//    }
 
     @Test
     public void successfulCreateUser() {

@@ -19,9 +19,9 @@ public class SignInPage {
         sleep(2000);
     }
 
-    public void signInAsUser(String userEmail, String userPassword){
-        emailField.setValue(userEmail);
-        passwordField.setValue(userPassword);
+    public void signInAsUserUI(String emailUI, String passwordUI){
+        emailField.setValue(emailUI);
+        passwordField.setValue(passwordUI);
         signInButton.click();
         sleep(2000);
     }
