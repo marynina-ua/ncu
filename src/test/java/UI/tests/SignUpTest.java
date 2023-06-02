@@ -34,6 +34,4 @@ public class SignUpTest extends BaseTest{
 
         baseApi.deleteApiUser("AutoTestStudent@gmail.com");
     }
-
-    //2 regration(два на основе зарегистрированных проблем(регрессионные тесты); )
 }

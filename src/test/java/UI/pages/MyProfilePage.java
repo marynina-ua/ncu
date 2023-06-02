@@ -1,9 +1,8 @@
 package UI.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -11,6 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class MyProfilePage {
 
     private SelenideElement roleUI = $(byClassName("filter-option-inner-inner"));
+    private SelenideElement roleTeacherUI = $(byId("bs-select-1-0"));
     private SelenideElement roleStudentUI = $(byId("bs-select-1-1"));
 
     private SelenideElement fullNameUI = $(byId("sw-form-capture-full_name-input"));
@@ -29,7 +29,13 @@ public class MyProfilePage {
     private SelenideElement changePasswordButton = $(byId("sw-change-password-btn"));
 
     private SelenideElement errorMessage = $(byXpath("//div[@class='error-message required-errors d-block']"));
-    public void chooseRole(){
+
+    public void chooseRoleAsTeacherUI(){
+        roleUI.click();
+        roleTeacherUI.click();
+        sleep(3000);
+    }
+    public void chooseRoleAsStudentUI(){
         roleUI.click();
         roleStudentUI.click();
         sleep(3000);
@@ -48,14 +54,18 @@ public class MyProfilePage {
         aboutUI.setValue(aboutInfo);
     }
 
-    //----img-----
 
     public void enterLink(String link){
         linkToProfile.setValue(link);
     }
 
-    public void setMajorPriority(String priority){
+    public void majorFieldIsActive(String priority){
+//        проверить что поле активно
         majorPriority.setValue(priority);
+    }
+
+    public void majorFieldIsNotActive(){
+        majorPriority.shouldBe(disabled);
     }
 
     public void clickOnUpdateProfileButton(){

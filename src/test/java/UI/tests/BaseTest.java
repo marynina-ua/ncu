@@ -24,6 +24,7 @@ public class BaseTest {
 
 //    @AfterMethod
 //    public void teardown() {
+//        Configuration.holdBrowserOpen=true;
 //        WebDriverRunner.closeWebDriver();
 //    }
 }

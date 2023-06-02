@@ -15,6 +15,7 @@ public class Header {
 
     private SelenideElement userIcon = $(byXpath("//div[@class='MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1s7t6r0']"));
     private SelenideElement userIconMyProfile = $(byXpath("//span[normalize-space()='My Profile']"));
+    public static final SelenideElement signOutButton = $(byXpath("//span[normalize-space()='Sign Out']"));
 
     public void clickOnSingUpButton (){
         singUpButtons.get(1).click();
@@ -28,6 +29,14 @@ public class Header {
         userIcon.click();
         userIconMyProfile.click();
         sleep(3000);
+    }
+
+    //todo для метода changePasswordOfUserUI что мы не можем зайти под старым паролем
+
+    public void clickOnSignOutButton(){
+        userIcon.click();
+        signOutButton.click();
+        sleep(2000);
     }
 
     public void studentDirectoryButtonIsAvailable() {
