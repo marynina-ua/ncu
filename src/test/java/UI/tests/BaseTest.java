@@ -23,6 +23,7 @@ public class BaseTest {
         System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
       //Configuration.holdBrowserOpen=true;
         open(BASE_URL);
+        WebDriverRunner.getWebDriver().manage().window().maximize();
     }
 
     @AfterMethod

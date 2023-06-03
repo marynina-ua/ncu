@@ -30,9 +30,6 @@ public class SignInPage {
 
     public boolean errorMessageIsPresent(String errorMsg){
        errorMessage.shouldHave(Condition.text(errorMsg));
-       System.out.println(errorMsg);
        return true;
     }
-
-
 }

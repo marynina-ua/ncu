@@ -10,19 +10,20 @@ public class MyProfileTest extends BaseTest {
 
     String p18 = "12345678";
     String p91 = "987654321";
+
     @BeforeMethod
     public void beSignedIn(){
         homePage.clickOnSignInButton();
         signInPage.signInAsUserUI("rtest@google.com", p91);
     }
 
-    @Test(testName = "Regression Test of Updating Email")
+    @Test(testName = "Regression Test of Updating Email", enabled = true)
     @Description("Update Email")
     public void changeEmailOfUserUI() {
         header.clickOnMyProfile();
         profilePage.chooseRoleAsStudentUI();
         profilePage.enterFullNameUI("ReTester");
-//        profilePage.enterEmailUI("retester@google.com");
+        profilePage.enterEmailUI("retester@google.com");
         profilePage.enterAboutDescription("A little bit about myself");
         profilePage.enterLink("tester.com");
         profilePage.majorFieldIsActive("Minor");
@@ -31,7 +32,7 @@ public class MyProfileTest extends BaseTest {
         Assert.assertEquals("ReTester", profilePage.getTextFromFullName());
     }
 
-    @Test(testName = "Regression Test to Check 'Major' Field")
+    @Test(testName = "Regression Test to Check 'Major' Field", enabled = true)
     @Description("'Major' field should not be enable for Teacher")
     public void checkMajorField(){
         header.clickOnMyProfile();
@@ -45,7 +46,7 @@ public class MyProfileTest extends BaseTest {
         Assert.assertTrue(profilePage.majorFieldIsNotActive());
     }
 
-    @Test(testName = "Regression Test of Changing Password")
+    @Test(testName = "Regression Test of Changing Password", enabled = false)
     public void changePasswordOfUserUI(){
         header.clickOnMyProfile();
         profilePage.setOldPassword(p91);

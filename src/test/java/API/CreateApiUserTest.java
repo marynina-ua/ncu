@@ -1,6 +1,7 @@
 package API;
 
 import API.dto.UserData;
+import com.codeborne.selenide.WebDriverRunner;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -14,6 +15,7 @@ public class CreateApiUserTest extends BaseApi {
     public void init() {
         System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
         open(BASE_URL);
+        WebDriverRunner.getWebDriver().manage().window().maximize();
     }
 
     @Test

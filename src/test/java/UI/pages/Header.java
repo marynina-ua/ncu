@@ -31,8 +31,6 @@ public class Header {
         sleep(3000);
     }
 
-    //todo для метода changePasswordOfUserUI что мы не можем зайти под старым паролем
-
     public void clickOnSignOutButton(){
         userIcon.click();
         signOutButton.click();
