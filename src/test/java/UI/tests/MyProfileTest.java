@@ -1,12 +1,10 @@
 package UI.tests;
 
-import com.codeborne.selenide.Configuration;
 import jdk.jfr.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.open;
 
 public class MyProfileTest extends BaseTest {
 
@@ -14,8 +12,6 @@ public class MyProfileTest extends BaseTest {
     String p91 = "987654321";
     @BeforeMethod
     public void beSignedIn(){
-//        Configuration.holdBrowserOpen=true;
-//        open(BASE_URL);
         homePage.clickOnSignInButton();
         signInPage.signInAsUserUI("rtest@google.com", p91);
     }
@@ -26,13 +22,13 @@ public class MyProfileTest extends BaseTest {
         header.clickOnMyProfile();
         profilePage.chooseRoleAsStudentUI();
         profilePage.enterFullNameUI("ReTester");
-        profilePage.enterEmailUI("retester@google.com");
+//        profilePage.enterEmailUI("retester@google.com");
         profilePage.enterAboutDescription("A little bit about myself");
         profilePage.enterLink("tester.com");
         profilePage.majorFieldIsActive("Minor");
         profilePage.clickOnUpdateProfileButton();
 
-        header.studentDirectoryButtonIsAvailable(); //todo дописать проверку
+        Assert.assertEquals("ReTester", profilePage.getTextFromFullName());
     }
 
     @Test(testName = "Regression Test to Check 'Major' Field")
@@ -45,6 +41,8 @@ public class MyProfileTest extends BaseTest {
         profilePage.enterLink("tester.com");
         profilePage.majorFieldIsNotActive();
         profilePage.clickOnUpdateProfileButton();
+
+        Assert.assertTrue(profilePage.majorFieldIsNotActive());
     }
 
     @Test(testName = "Regression Test of Changing Password")
@@ -55,7 +53,8 @@ public class MyProfileTest extends BaseTest {
         profilePage.clickOnChangePasswordButton();
 
         header.clickOnSignOutButton();
-        signInPage.signInAsUserUI("rtest@google.com", p91); // залогиниться
+        signInPage.signInAsUserUI("rtest@google.com", p91);
+
         Assert.assertTrue(signInPage.errorMessageIsPresent("Invalid email or password"));
     }
 }

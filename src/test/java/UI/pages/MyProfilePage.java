@@ -2,8 +2,7 @@ package UI.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.disabled;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -45,6 +44,11 @@ public class MyProfilePage {
         fullNameUI.setValue(name);
     }
 
+    public String getTextFromFullName(){
+        String getFullName = fullNameUI.getValue();
+        return getFullName;
+    }
+
     public void enterEmailUI(String mail) {
         emailUI.click();
         emailUI.setValue(mail);
@@ -60,12 +64,13 @@ public class MyProfilePage {
     }
 
     public void majorFieldIsActive(String priority){
-//        проверить что поле активно
+        majorPriority.shouldBe(enabled);
         majorPriority.setValue(priority);
     }
 
-    public void majorFieldIsNotActive(){
+    public boolean majorFieldIsNotActive(){
         majorPriority.shouldBe(disabled);
+        return true;
     }
 
     public void clickOnUpdateProfileButton(){

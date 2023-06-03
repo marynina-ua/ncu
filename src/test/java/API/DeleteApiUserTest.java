@@ -3,9 +3,18 @@ package API;
 import API.dto.UserData;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class DeleteApiUserTest extends BaseApi {
+
+    @BeforeMethod
+    public void init() {
+        System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
+        open(BASE_URL);
+    }
 
     @Test(testName = "Api DEL Teacher")
     public void successfulDeleteTeacher() {
@@ -26,6 +35,10 @@ public class DeleteApiUserTest extends BaseApi {
         Response response = deleteRequest(endpoint+teacherEmail,200);
             response.then().assertThat().statusCode(200);
             Assert.assertNotNull(response);
+
+        homePage.clickOnSignInButton();
+        signInPage.enterAsApiUser(teacherEmail, password);
+        Assert.assertTrue(signInPage.errorMessageIsPresent("Invalid email or password"));
     }
 
     @Test(testName = "Api DEL Student")
@@ -46,5 +59,9 @@ public class DeleteApiUserTest extends BaseApi {
         Response response = deleteRequest(endpoint+studentEmail,200);
             response.then().assertThat().statusCode(200);
             Assert.assertNotNull(response);
+
+        homePage.clickOnSignInButton();
+        signInPage.enterAsApiUser(studentEmail, password);
+        Assert.assertTrue(signInPage.errorMessageIsPresent("Invalid email or password"));
     }
 }

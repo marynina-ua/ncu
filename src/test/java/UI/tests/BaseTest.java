@@ -3,6 +3,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 import API.BaseApi;
 import UI.pages.*;
+import com.codeborne.selenide.WebDriverRunner;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
@@ -19,12 +21,12 @@ public class BaseTest {
     @BeforeMethod
     public void init() {
         System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
+      //Configuration.holdBrowserOpen=true;
         open(BASE_URL);
     }
 
-//    @AfterMethod
-//    public void teardown() {
-//        Configuration.holdBrowserOpen=true;
-//        WebDriverRunner.closeWebDriver();
-//    }
+    @AfterMethod
+    public void teardown() {
+        WebDriverRunner.closeWebDriver();
+    }
 }
