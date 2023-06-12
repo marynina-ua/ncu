@@ -9,7 +9,9 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
-    public final String BASE_URL = "https://jere237.softr.app/";
+//    public final String BASE_URL = "https://jere237.softr.app/";
+    public final String BASE_URL = "https://erich416.softr.app";
+
 
     HomePage homePage = new HomePage();
     SignUpPage signUpPage = new SignUpPage();

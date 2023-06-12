@@ -15,7 +15,8 @@ public class BaseApi {
     HomePage homePage = new HomePage();
 
     final static String BASE_URI = "https://studio-api.softr.io/v1/api";
-    final static String BASE_URL = "https://jere237.softr.app/";
+//    final static String BASE_URL = "https://jere237.softr.app/";
+    final static String BASE_URL = "https://erich416.softr.app/";
     final static String API_KEY = "khIbAyJIU5CIuh1oDuBRx1s49";
     final static String DOMAIN = "jere237.softr.app";
 

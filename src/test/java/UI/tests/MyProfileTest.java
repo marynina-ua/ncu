@@ -14,7 +14,7 @@ public class MyProfileTest extends BaseTest {
     @BeforeMethod
     public void beSignedIn(){
         homePage.clickOnSignInButton();
-        signInPage.signInAsUserUI("rtest@google.com", p91);
+        signInPage.signInAsUserUI("rtest@google.com", p18);
     }
 
     @Test(testName = "Regression Test of Updating Email", enabled = true)
@@ -49,12 +49,12 @@ public class MyProfileTest extends BaseTest {
     @Test(testName = "Regression Test of Changing Password", enabled = false)
     public void changePasswordOfUserUI(){
         header.clickOnMyProfile();
-        profilePage.setOldPassword(p91);
-        profilePage.setNewPassword(p18);
+        profilePage.setOldPassword(p18);
+        profilePage.setNewPassword(p91);
         profilePage.clickOnChangePasswordButton();
 
         header.clickOnSignOutButton();
-        signInPage.signInAsUserUI("rtest@google.com", p91);
+        signInPage.signInAsUserUI("rtest@google.com", p18);
 
         Assert.assertTrue(signInPage.errorMessageIsPresent("Invalid email or password"));
     }
